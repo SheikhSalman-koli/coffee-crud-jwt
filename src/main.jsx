@@ -15,6 +15,7 @@ import axios from 'axios'
 import Myadded from './components/Myadded.jsx'
 import Allcoffee from './components/Allcoffee.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
+import MyOrders from './components/MyOrders.jsx'
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
         path: 'all-coffees',
          loader: ()=> axios(`http://localhost:3000/coffees`),
         Component:Allcoffee
+      },
+      {
+        path: 'my-orders',
+         element: <PrivateRoute>
+          <MyOrders></MyOrders>
+        </PrivateRoute>
       },
       {
         path: 'signin',
